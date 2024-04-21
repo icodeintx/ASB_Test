@@ -1,6 +1,10 @@
-@ASB_Test_HostAddress = http://localhost:5157
+@ASB_Test_HostAddress = https://localhost:7180/
 
-GET {{ASB_Test_HostAddress}}/queueone/getmessage("test message")"
+
+POST {{ASB_Test_HostAddress}}QueueOne/SendMessage?message=testmessage
 Accept: application/json
+###
 
+GET {{ASB_Test_HostAddress}}QueueOne/GetMessage
+Accept: application/json
 ###

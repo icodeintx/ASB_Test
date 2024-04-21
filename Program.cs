@@ -12,9 +12,14 @@ public class Program
         // Add services to the container.
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
-        string azureServiceBusConnectionstring = "Add secret endpoint here";
+        string? azureServiceBusConnectionstring = Environment.GetEnvironmentVariable("AzureServiceBus");
         string queueOne = "queueone";
         string queueTwo = "abc";
+
+        if (string.IsNullOrEmpty(azureServiceBusConnectionstring))
+        {
+            throw new ArgumentNullException("AzureServiceBus connection string is missing");
+        }
 
         EnsureQueueExists(azureServiceBusConnectionstring, queueOne);
         EnsureQueueExists(azureServiceBusConnectionstring, queueTwo);
