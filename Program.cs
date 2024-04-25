@@ -12,6 +12,7 @@ public class Program
         // Add services to the container.
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
+        // Below we use an Environment Variable to store the Azure Service Bus Endpoint since we cannot check in those secrets to code repo
         string? azureServiceBusConnectionstring = Environment.GetEnvironmentVariable("AzureServiceBus");
         string queueOne = "queueone";
         string queueTwo = "abc";
